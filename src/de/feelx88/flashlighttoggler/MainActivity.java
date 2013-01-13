@@ -1,58 +1,65 @@
 package de.feelx88.flashlighttoggler;
 
-import java.io.IOException;
-
 import android.os.Bundle;
+import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.app.Activity;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.Menu;
-import android.hardware.*;
 
 public class MainActivity extends Activity {
-
-	private Camera mCamera;
+	
+	DevicePolicyManager mPolicyManager;
+	ComponentName mAdminReceiver;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mCamera = Camera.open();
+        
+        if( !stopService( new Intent( this, FlashLightService.class ) ) )
+    		startService( new Intent( this, FlashLightService.class ) );
+        
+        mPolicyManager = (DevicePolicyManager)getSystemService( DEVICE_POLICY_SERVICE );
+        mAdminReceiver = new ComponentName( this, FLTDeviceAdminReceiver.class );
+        
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences( this );
+        
+        if( mPolicyManager.isAdminActive( mAdminReceiver ) && prefs.getBoolean( "lockOnActivate", false ) )
+        {
+        	mPolicyManager.lockNow();
+        	new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                	mPolicyManager.lockNow();
+                }
+            }, 500);
+        	new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                	mPolicyManager.lockNow();
+                }
+            }, 1000);
+        }
+        
+        finish();
     }
     
     @Override
     protected void onStop() {
-    	
-    	toggleFlash( false );
-    	
     	super.onStop();
     }
     
     @Override
     protected void onStart() {
-    	
-    	toggleFlash( true );
-    	
-    	super.onStart();
-    }
-    
-    private void toggleFlash( boolean on )
-    {
-    	try {
-			mCamera.reconnect();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return;
-		}
-    	Camera.Parameters params = mCamera.getParameters();
-    	if( on )
-    		params.setFlashMode( Camera.Parameters.FLASH_MODE_TORCH );
-    	else
-    		params.setFlashMode( Camera.Parameters.FLASH_MODE_OFF );
-        mCamera.setParameters( params );
+    	super.onStart();    	
     }
     
     @Override
     protected void onDestroy() {
-    	toggleFlash( false );
     	super.onDestroy();
     }
 
