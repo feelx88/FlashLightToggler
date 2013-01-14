@@ -16,10 +16,11 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity android:name="FLTSettings" android:label="FLTSettings" android:logo="@android:drawable/ic_menu_preferences">
+        <activity android:name="FLTSettings" android:label="FLTSettings" android:logo="@android:drawable/ic_menu_preferences" android:icon="@android:drawable/ic_menu_preferences" android:taskAffinity="de.feelx88.flashlighttoggler.settingstask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity><activity
             android:name="de.feelx88.flashlighttoggler.MainActivity"

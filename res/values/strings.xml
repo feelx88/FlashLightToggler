@@ -2,8 +2,6 @@
 <resources>
 
     <string name="app_name">FlashLightToggler</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="device_admin_name">FlashLightToggler lock screen device admin</string>
 
 </resources>
