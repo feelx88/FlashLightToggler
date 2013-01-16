@@ -1,5 +1,5 @@
 /**
-Copyright 2013 Felix Müller.
+Copyright 2013 Felix Mï¿½ller.
 
 This file is part of FlashLightToggler.
 
@@ -69,7 +69,8 @@ public class FLTSettings extends PreferenceActivity {
 					{
 						Intent intent = new Intent( DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN );
 						intent.putExtra( DevicePolicyManager.EXTRA_DEVICE_ADMIN, mDeviceAdmin );
-						intent.putExtra( DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Add Device Admin" );
+						intent.putExtra( DevicePolicyManager.EXTRA_ADD_EXPLANATION,
+								getString( R.string.deviceAdminSummary ) );
 						startActivityForResult( intent, 1 );
 						return false;
 					}

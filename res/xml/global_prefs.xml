@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:key="globalPrefs">
-    <CheckBoxPreference android:summaryOff="Device admin disabled" android:key="deviceAdmin" android:summaryOn="Device admin enabled" android:summary="Used to allow locking the screen" android:title="Device Administrator" android:disableDependentsState="false"/>
-    <CheckBoxPreference android:summaryOff="Do not lock on activation" android:summaryOn="Lock on activation" android:dependency="deviceAdmin" android:summary="Lock the screen when the app is started" android:title="Lock on activation" android:key="lockOnActivate"/>
+    <CheckBoxPreference android:summaryOff="@string/deviceAdminDisabled" android:key="deviceAdmin" android:summaryOn="@string/deviceAdminEnabled" android:summary="@string/deviceAdminSummary" android:title="@string/deviceAdmin" android:disableDependentsState="false"/>
+    <CheckBoxPreference android:summaryOff="@string/doNotLockOnActivation" android:summaryOn="@string/lockOnActivation" android:dependency="deviceAdmin" android:summary="@string/lockOnActivationSummary" android:title="@string/lockOnActivation" android:key="lockOnActivate"/>
     
 
 </PreferenceScreen>

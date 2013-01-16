@@ -1,5 +1,5 @@
 /**
-Copyright 2013 Felix Müller.
+Copyright 2013 Felix Mï¿½ller.
 
 This file is part of FlashLightToggler.
 
@@ -26,13 +26,13 @@ import android.widget.Toast;
 public class FLTDeviceAdminReceiver extends android.app.admin.DeviceAdminReceiver {
 	@Override
 	public void onEnabled( Context context, Intent intent ) {
-		Toast.makeText(context, "Device Admin enabled", Toast.LENGTH_SHORT ).show();
-		super.onEnabled(context, intent);
+		Toast.makeText( context, R.string.deviceAdminEnabled, Toast.LENGTH_SHORT ).show();
+		super.onEnabled( context, intent );
 	}
 	
 	@Override
 	public void onDisabled( Context context, Intent intent ) {
-		Toast.makeText(context, "Device Admin disabled", Toast.LENGTH_SHORT ).show();
-		super.onEnabled(context, intent);
+		Toast.makeText( context, R.string.deviceAdminDisabled, Toast.LENGTH_SHORT ).show();
+		super.onEnabled( context, intent );
 	}
 }

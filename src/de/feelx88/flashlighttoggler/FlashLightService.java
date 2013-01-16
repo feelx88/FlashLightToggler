@@ -1,5 +1,5 @@
 /**
-Copyright 2013 Felix Müller.
+Copyright 2013 Felix Mï¿½ller.
 
 This file is part of FlashLightToggler.
 
@@ -66,8 +66,8 @@ public class FlashLightService extends Service {
 		{
 		
 			mNotification = new Notification.Builder( this )
-		        .setContentTitle( "Flash light activated" )
-		        .setContentText( "Click to disable" )
+		        .setContentTitle( getString( R.string.flashLightActivated ) )
+		        .setContentText( getString( R.string.clickToDisable ) )
 		        .setSmallIcon( R.drawable.ic_flashlight_on )
 		        .setOngoing( true )
 		        .setPriority( Notification.PRIORITY_HIGH )
@@ -77,15 +77,15 @@ public class FlashLightService extends Service {
 		else if(  Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB )
 		{
 			mNotification = new Notification.Builder( this )
-		        .setContentTitle( "Flash light activated" )
-		        .setContentText( "Click to disable" )
+		        .setContentTitle( getString( R.string.flashLightActivated ) )
+		        .setContentText( getString( R.string.clickToDisable ) )
 		        .setSmallIcon( R.drawable.ic_flashlight_on )
 		        .setOngoing( true )
 		        .setContentIntent( intent )
 		        .build();
 		}
 		else
-			Toast.makeText( this, "Started flash light", Toast.LENGTH_SHORT ).show();
+			Toast.makeText( this, R.string.startedFlashLight, Toast.LENGTH_SHORT ).show();
 		
 		if( mNotification != null )
 			( (NotificationManager)getSystemService( NOTIFICATION_SERVICE ) ).notify( 0, mNotification );

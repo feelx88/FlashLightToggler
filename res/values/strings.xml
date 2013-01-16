@@ -3,5 +3,17 @@
 
     <string name="app_name">FlashLightToggler</string>
     <string name="menu_settings">Settings</string>
+    <string name="deviceAdminEnabled">Device administrator enabled</string>
+    <string name="deviceAdminDisabled">Device administrator disabled</string>
+    <string name="deviceAdmin">Device Administrator</string>
+    <string name="deviceAdminSummary">Needed to allow locking the screen</string>
+    <string name="lockOnActivation">Lock on activation</string>
+    <string name="doNotLockOnActivation">Do not lock on activation</string>
+    <string name="lockOnActivationSummary">Lock the screen when the app is started</string>
+    <string name="globalPreferences">Global Preferences</string>
+    <string name="globalPreferencesSummary">Everything that applies to the global behaviour of the app.</string>
+    <string name="flashLightActivated">Flash light activated</string>
+    <string name="clickToDisable">Click to disable</string>
+    <string name="startedFlashLight">Started flash light</string>
 
 </resources>
