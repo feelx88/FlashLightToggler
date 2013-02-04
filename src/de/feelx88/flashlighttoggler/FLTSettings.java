@@ -37,6 +37,8 @@ public class FLTSettings extends PreferenceActivity {
 	protected static ComponentName mDeviceAdmin;
 	protected static DevicePolicyManager mPolicyManager;
 	
+	private static final int RESULT_CODE_DEVICE_ADMIN = 1;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -71,7 +73,7 @@ public class FLTSettings extends PreferenceActivity {
 						intent.putExtra( DevicePolicyManager.EXTRA_DEVICE_ADMIN, mDeviceAdmin );
 						intent.putExtra( DevicePolicyManager.EXTRA_ADD_EXPLANATION,
 								getString( R.string.deviceAdminSummary ) );
-						startActivityForResult( intent, 1 );
+						startActivityForResult( intent, RESULT_CODE_DEVICE_ADMIN );
 						return false;
 					}
 					else
@@ -88,7 +90,7 @@ public class FLTSettings extends PreferenceActivity {
 		public void onActivityResult(int requestCode, int resultCode,
 				Intent data) {
 			
-			if( requestCode == 1 )
+			if( requestCode == RESULT_CODE_DEVICE_ADMIN )
 			{
 				if( mPolicyManager.isAdminActive( mDeviceAdmin ) )
 					findPreference( "deviceAdmin" ).setEnabled( true );
