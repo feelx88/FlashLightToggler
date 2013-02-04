@@ -39,15 +39,19 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        if( !stopService( new Intent( this, FlashLightService.class ) ) )
-    		startService( new Intent( this, FlashLightService.class ) );
-        
         mPolicyManager = (DevicePolicyManager)getSystemService( DEVICE_POLICY_SERVICE );
         mAdminReceiver = new ComponentName( this, FLTDeviceAdminReceiver.class );
-        
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences( this );
         
-        if( mPolicyManager.isAdminActive( mAdminReceiver ) && prefs.getBoolean( "lockOnActivate", false ) )
+        boolean lock = prefs.getBoolean( "lockOnDeActivate", false );
+        
+        if( !stopService( new Intent( this, FlashLightService.class ) ) )
+        {
+    		startService( new Intent( this, FlashLightService.class ) );
+    		lock = prefs.getBoolean( "lockOnActivate", false );
+        }
+        
+        if( mPolicyManager.isAdminActive( mAdminReceiver ) && lock )
         {
         	mPolicyManager.lockNow();
         	new Handler().postDelayed(new Runnable() {

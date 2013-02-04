@@ -9,7 +9,10 @@
     <string name="deviceAdminSummary">Needed to allow locking the screen</string>
     <string name="lockOnActivation">Lock on activation</string>
     <string name="doNotLockOnActivation">Do not lock on activation</string>
-    <string name="lockOnActivationSummary">Lock the screen when the app is started</string>
+    <string name="lockOnActivationSummary">Lock the screen when the flash light is turned on</string>
+    <string name="lockOnDeActivation">Lock on deactivation</string>
+    <string name="doNotLockOnDeActivation">Do not lock on deactivation</string>
+    <string name="lockOnDeActivationSummary">Lock the screen when the flash light is turned off</string>
     <string name="globalPreferences">Global Preferences</string>
     <string name="globalPreferencesSummary">Everything that applies to the global behaviour of the app.</string>
     <string name="flashLightActivated">Flash light activated</string>

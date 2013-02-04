@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:key="globalPrefs">
     <CheckBoxPreference android:summaryOff="@string/deviceAdminDisabled" android:key="deviceAdmin" android:summaryOn="@string/deviceAdminEnabled" android:summary="@string/deviceAdminSummary" android:title="@string/deviceAdmin" android:disableDependentsState="false"/>
-    <CheckBoxPreference android:summaryOff="@string/doNotLockOnActivation" android:summaryOn="@string/lockOnActivation" android:dependency="deviceAdmin" android:summary="@string/lockOnActivationSummary" android:title="@string/lockOnActivation" android:key="lockOnActivate"/>
+    <CheckBoxPreference android:summaryOff="@string/doNotLockOnActivation" android:summaryOn="@string/lockOnActivation" android:dependency="deviceAdmin" android:summary="@string/lockOnActivationSummary" android:title="@string/lockOnActivation" android:key="lockOnActivate"/><CheckBoxPreference android:summaryOff="@string/doNotLockOnDeActivation" android:summaryOn="@string/lockOnDeActivation" android:dependency="deviceAdmin" android:summary="@string/lockOnDeActivationSummary" android:title="@string/lockOnDeActivation" android:key="lockOnDeActivate" />
     
 
 </PreferenceScreen>
