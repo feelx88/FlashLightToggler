@@ -37,7 +37,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         
         mPolicyManager = (DevicePolicyManager)getSystemService( DEVICE_POLICY_SERVICE );
         mAdminReceiver = new ComponentName( this, FLTDeviceAdminReceiver.class );
@@ -84,13 +83,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onDestroy() {
     	super.onDestroy();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
     }
     
 }
